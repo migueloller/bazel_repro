@@ -1,0 +1,12 @@
+load("@build_bazel_rules_nodejs//:index.bzl", "pkg_npm")
+
+pkg_npm(
+    name = "lib",
+    package_name = "lib",
+    srcs = [
+        "index.js",
+        "package.json",
+    ],
+    visibility = ["//visibility:public"],
+    deps = ["@lib_npm//lodash"],
+)
