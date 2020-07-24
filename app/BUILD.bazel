@@ -4,7 +4,6 @@ nodejs_binary(
     name = "app",
     data = [
         "//lib",
-        "@app_npm//express",
     ],
     entry_point = "index.js",
 )

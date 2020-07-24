@@ -30,15 +30,3 @@ yarn_install(
     package_json = "//:package.json",
     yarn_lock = "//:yarn.lock",
 )
-
-yarn_install(
-    name = "lib_npm",
-    package_json = "//lib:package.json",
-    yarn_lock = "//lib:yarn.lock",
-)
-
-yarn_install(
-    name = "app_npm",
-    package_json = "//app:package.json",
-    yarn_lock = "//app:yarn.lock",
-)

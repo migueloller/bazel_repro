@@ -8,5 +8,4 @@ pkg_npm(
         "package.json",
     ],
     visibility = ["//visibility:public"],
-    deps = ["@lib_npm//lodash"],
 )
