@@ -7,7 +7,11 @@ workspace(
     name = "bazel_repro",
     # Map the @npm bazel workspace to the node_modules directory.
     # This lets Bazel use the same node_modules as other local tooling.
-    managed_directories = {"@npm": ["node_modules"]},
+    managed_directories = {
+        "@npm": ["node_modules"],
+        "@app_npm": ["app/node_modules"],
+        "@lib_npm": ["lib/node_modules"],
+    },
 )
 
 # Install the nodejs "bootstrap" package
@@ -29,4 +33,18 @@ yarn_install(
     name = "npm",
     package_json = "//:package.json",
     yarn_lock = "//:yarn.lock",
+)
+
+yarn_install(
+    # Name this npm so that Bazel Label references look like @npm//package
+    name = "app_npm",
+    package_json = "//app:package.json",
+    yarn_lock = "//app:yarn.lock",
+)
+
+yarn_install(
+    # Name this npm so that Bazel Label references look like @npm//package
+    name = "lib_npm",
+    package_json = "//lib:package.json",
+    yarn_lock = "//lib:yarn.lock",
 )

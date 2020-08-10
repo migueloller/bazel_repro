@@ -6,4 +6,5 @@ nodejs_binary(
         "//lib",
     ],
     entry_point = "index.js",
+    templated_args = ["--nobazel_patch_module_resolver"],
 )
